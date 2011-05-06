@@ -13,7 +13,12 @@ public class PropertiesLoader {
     // read properties from PROPERTIES_FILE
     Properties properties = new Properties();
     try {
-      FileInputStream file = new FileInputStream(new File(PROPERTIES_FILE));
+      String filePath = PROPERTIES_FILE;
+      if (System.getenv("CHCI_HOME") != null){
+        filePath = System.getenv("CHCI_HOME") + "\\" + filePath;
+      }
+      System.out.println("FilePath: " + filePath);
+      FileInputStream file = new FileInputStream(new File(filePath));
       properties.load(file);
       file.close();
     } catch (Exception e){
