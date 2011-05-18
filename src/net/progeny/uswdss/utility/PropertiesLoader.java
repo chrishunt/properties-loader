@@ -14,8 +14,8 @@ public class PropertiesLoader {
     Properties properties = new Properties();
     try {
       String filePath = PROPERTIES_FILE;
-      if (System.getenv("CHCI_HOME") != null){
-        filePath = System.getenv("CHCI_HOME") + "\\" + filePath;
+      if (System.getenv("USWDSS_RMCI_HOME") != null){
+        filePath = System.getenv("USWDSS_RMCI_HOME") + "\\" + filePath;
       }
       System.out.println("FilePath: " + filePath);
       FileInputStream file = new FileInputStream(new File(filePath));
